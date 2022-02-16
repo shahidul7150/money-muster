@@ -37,6 +37,9 @@ document.getElementById('saving-btn').addEventListener('click', function () {
     const saving = (incomeValue * savingValue)/100
     document.getElementById('saving-amount').innerText=saving
 
-    
+    const balance= document.getElementById('balance-amount').innerText;
+    const remaining = balance - saving
+    console.log(remaining)
+    document.getElementById('remain-amount').innerText=remaining
 
 })
