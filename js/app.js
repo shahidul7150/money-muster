@@ -2,19 +2,22 @@
 function inputValue(item) {
     const fieldInput = document.getElementById(item + '-input');
     const incomeValue = parseInt(fieldInput.value)
-    if (incomeValue < 1) {
+    // err handle 
+    if (incomeValue < 0) {
         // alert('Negative value not allowed')
         document.getElementById('alert').style.backgroundColor = 'red'
         document.getElementById('alert').style.width = "50%";
-        document.getElementById('alert').style.color="white"
+        document.getElementById('alert').style.color = "white"
         document.getElementById('alert').style.margin = "auto";
         document.getElementById('alert').innerText = "Negative value is not allowed !"
-        document.getElementById("expenses-amount").innerText="😒"
-       
+        document.getElementById("expenses-amount").style.display = 'none'
+        document.getElementById("balance-amount").style.display = 'none'
     }
-    else {
+    
         return incomeValue
-    }
+    
+        
+
     
 }
 
@@ -30,7 +33,6 @@ document.getElementById('calculate-btn').addEventListener('click', function () {
     // clothes input 
     inputValue('clothes')
 // Total Expenses
-    
     const totalExpenses = inputValue('food') + inputValue('rent')+ inputValue('clothes');
     document.getElementById('expenses-amount').innerText = totalExpenses
     // Balance 
@@ -47,6 +49,7 @@ document.getElementById('saving-btn').addEventListener('click', function () {
     const savingInput = document.getElementById('saving-input')
     const savingValue = savingInput.value;
     const saving = (incomeValue * savingValue) / 100
+    document.getElementById('income-input').value=''
 
     // error handeling 
     if (saving > balance) {
@@ -68,8 +71,5 @@ document.getElementById('saving-btn').addEventListener('click', function () {
         remaining = balance - saving
         document.getElementById('remain-amount').innerText=remaining
     }
-    
-    console.log(remaining)
-    
-
 })
+
