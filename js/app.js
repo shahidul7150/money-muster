@@ -1,45 +1,69 @@
 
+function inputValue(item) {
+    const fieldInput = document.getElementById(item + '-input');
+    const incomeValue = parseInt(fieldInput.value)
+    if (incomeValue < 1) {
+        alert('Negative value not allowed')
+        document.getElementById('expenses-amount').innerText = "Negative value is not allowed"
+    }
+    else {
+        return incomeValue
+    }
+    
+}
+
+
 document.getElementById('calculate-btn').addEventListener('click', function () {
     // income input 
-    const incomeInput=document.getElementById('income-input');
-    const incomeValue = parseInt(incomeInput.value);
-    console.log(incomeValue)
-
+    
+    inputValue('income')
     // expenses input 
-    const foodInput = document.getElementById('food-input');
-    const foodValue = parseInt(foodInput.value);
-    console.log(foodValue)
-
+    inputValue('food')
     // rent input 
-    const rentInput = document.getElementById('rent-input');
-    const rentValue = parseInt(rentInput.value);
-    console.log(rentValue)
-
+    inputValue('rent')
     // clothes input 
-    const clothInput = document.getElementById('clothes-input');
-    const clothValue = parseInt(clothInput.value);
-    console.log(clothValue)
-
+    inputValue('clothes')
 // Total Expenses
-    const totalExpenses = foodValue + rentValue + clothValue;
+    
+    const totalExpenses = inputValue('food') + inputValue('rent')+ inputValue('clothes');
     document.getElementById('expenses-amount').innerText = totalExpenses
     // Balance 
-    document.getElementById('balance-amount').innerText = incomeValue - totalExpenses
+    document.getElementById('balance-amount').innerText =  inputValue('income') - totalExpenses
     
     
 })
+
 // saving 
 document.getElementById('saving-btn').addEventListener('click', function () {
-    const incomeInput=document.getElementById('income-input');
+    const balance = document.getElementById('balance-amount').innerText;
+    const incomeInput = document.getElementById('income-input');
     const incomeValue = parseInt(incomeInput.value);
     const savingInput = document.getElementById('saving-input')
     const savingValue = savingInput.value;
-    const saving = (incomeValue * savingValue)/100
-    document.getElementById('saving-amount').innerText=saving
+    const saving = (incomeValue * savingValue) / 100
 
-    const balance= document.getElementById('balance-amount').innerText;
-    const remaining = balance - saving
+    // error handeling 
+    if (saving > balance) {
+        document.getElementById('saving-amount').innerText="Savings is higher than main Balance"
+    } else {
+        document.getElementById('saving-amount').innerText=saving
+    }
+    
+
+//    error handeling 
+
+    if (saving > balance) {
+        let errMasg = document.getElementById('remain-amount')
+        
+        errMasg.innerText = "You do not have sufficient Balance"
+        
+        
+    } else {
+        remaining = balance - saving
+        document.getElementById('remain-amount').innerText=remaining
+    }
+    
     console.log(remaining)
-    document.getElementById('remain-amount').innerText=remaining
+    
 
 })

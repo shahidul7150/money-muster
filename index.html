@@ -27,15 +27,16 @@
                     <!-- income part -->
                     <div class="mb-3">
                         <h4 class="text-center">Income</h4>
-                    <p class="fw-bold">Income: <input id="income-input" class="me-3 input-bg border-0 rounded py-1 px-3 " type="text"></p>
+                    <p class="fw-bold">Income: <input id="income-input" class="me-3 input-bg border-0 rounded py-1 px-3 " type="number" placeholder="Give your income amount" ></p>
                    </div>
                     <!-- expenses part -->
                     <div class="mb-3  ">
                         <h4 class="text-center">Expenses</h4>
-
-                            <p class="fw-bold">Food: <input id="food-input" type="text" class="input-bg border-0 rounded py-1 px-3"></p>
-                            <p class="fw-bold">Rent: <input id="rent-input" type="text" class="input-bg border-0 rounded py-1 px-3"></p>
-                            <p class="fw-bold">Clothes: <input id="clothes-input" type="text" class="me-3 input-bg border-0 rounded py-1 px-3"></p>
+                                <!-- alert -->
+                                <p id="alert"></p>
+                            <p class="fw-bold">Food: <input id="food-input" type="number" class="input-bg border-0 rounded py-1 px-3" placeholder="Food expenses"></p>
+                            <p class="fw-bold">Rent: <input id="rent-input" type="number" class="input-bg border-0 rounded py-1 px-3" placeholder="Rent expenses"></p>
+                            <p class="fw-bold">Clothes: <input id="clothes-input" type="number" class="me-3 input-bg border-0 rounded py-1 px-3" placeholder="Clothes expenses"></p>
                             <button id="calculate-btn" class="btn btn-any-color text-white " >Calculate</button>
                         </div>
                         <!-- expenses and balance total part  -->
@@ -44,7 +45,7 @@
 
                         <div>
                             <!-- saving part      -->
-                            <p class="fw-bold mt-5">Saving: <input id="saving-input" type="text" value="0" class="w-25 text-center input-bg border-0 rounded py-1">
+                            <p class="fw-bold mt-5">Saving: <input id="saving-input" type="number"  class="w-25 text-center input-bg border-0 rounded py-1" placeholder="Savings %" >
                                  <span class="mx-5">%</span>
                                 <button id="saving-btn" class="btn btn-any-color text-white ">Save</button>   
                                 </p>
