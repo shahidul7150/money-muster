@@ -3,8 +3,14 @@ function inputValue(item) {
     const fieldInput = document.getElementById(item + '-input');
     const incomeValue = parseInt(fieldInput.value)
     if (incomeValue < 1) {
-        alert('Negative value not allowed')
-        document.getElementById('expenses-amount').innerText = "Negative value is not allowed"
+        // alert('Negative value not allowed')
+        document.getElementById('alert').style.backgroundColor = 'red'
+        document.getElementById('alert').style.width = "50%";
+        document.getElementById('alert').style.color="white"
+        document.getElementById('alert').style.margin = "auto";
+        document.getElementById('alert').innerText = "Negative value is not allowed !"
+        document.getElementById("expenses-amount").innerText="😒"
+       
     }
     else {
         return incomeValue
